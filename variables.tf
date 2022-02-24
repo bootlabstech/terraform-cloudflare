@@ -54,7 +54,25 @@ variable "cloudflare_value" {
 }
 
 variable "cloudflare_record_type" {
-  description = "The type of the record"
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "A",
+  "AAAA",
+  "CNAME",
+  "MX",
+  "TXT",
+  "NS",
+  "SOA",
+  "SRV",
+  "PTR"
+   ],
+   "default":true,
+   "description": "The type of the record"
+   }
+EOT
   type        = string
 }
 
@@ -65,7 +83,18 @@ variable "ttl" {
 }
 
 variable "proxied" {
-  description = "Whether the hostname gets Cloudflare's origin protection"
+  description = <<-EOT
+  {
+   "type": "json",
+   "purpose": "autocomplete",
+   "data": [
+  "true",
+  "false"
+   ],
+   "default":true,
+   "description": "Whether the hostname gets Cloudflare's origin protection"
+}
+EOT
   type        = bool
   default     = true
 }
