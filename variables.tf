@@ -98,3 +98,7 @@ EOT
   type        = bool
   default     = true
 }
+variable "tags" {
+  type        = list(string)
+  description = "this will be used for tagging resources."
+}
