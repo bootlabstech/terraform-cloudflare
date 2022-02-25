@@ -6,6 +6,7 @@ resource "cloudflare_load_balancer" "cf_load_balancer" {
   description      = var.cloudflare_load_balancer_description
   proxied          = var.proxied
   steering_policy  = var.cloudflare_load_balancer_steering_policy
+  tags             = var .tags
 }
 
 resource "cloudflare_record" "cf_record" {
@@ -15,4 +16,5 @@ resource "cloudflare_record" "cf_record" {
   type    = var.cloudflare_record_type
   ttl     = var.ttl
   proxied = var.proxied
+  tags    = var.tags
 }
